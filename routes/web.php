@@ -23,7 +23,9 @@ Route::get('students/list', [StudentController::class, 'getStudents'])->name('st
 
 Route::get('/test', function () {
     $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
-    $beautymail->send('emails.welcome', [], function ($message) {
+    $msg = "New message from :sendername ";
+    $new_msg = str_replace(":sendername", "Ali", $msg);
+    $beautymail->send('emails.welcome', ['data' => $new_msg], function ($message) {
         $message
             ->to('yotayot29@gmail.com', 'Aya Omar')
             ->subject('Welcome!');

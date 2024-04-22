@@ -9,7 +9,7 @@
 
     @include('beautymail::templates.sunny.contentStart')
 
-    <p>Today will be a great day!</p>
+    <p>{{$data}}</p>
 
     @include('beautymail::templates.sunny.contentEnd')
 

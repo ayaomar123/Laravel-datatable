@@ -20,3 +20,13 @@ Route::get('/', function () {
 
 Route::get('students', [StudentController::class, 'index']);
 Route::get('students/list', [StudentController::class, 'getStudents'])->name('students.list');
+
+Route::get('/test', function () {
+    $beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+    $beautymail->send('emails.welcome', [], function ($message) {
+        $message
+            ->to('yotayot29@gmail.com', 'Aya Omar')
+            ->subject('Welcome!');
+    });
+
+});
